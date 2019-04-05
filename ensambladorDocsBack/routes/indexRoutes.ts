@@ -1,5 +1,5 @@
 import {Router} from 'express'; //se está importando el método Router desde express
-
+import {indexControllers} from '../controllers/indexControllers'
 
 
  class IndexRouter {
@@ -21,6 +21,9 @@ import {Router} from 'express'; //se está importando el método Router desde ex
         this.router.get('/',(req,res)=>{
             res.send('inicio')
         })
+
+        this.router.get('/clientes',indexControllers.cliente)
+
 
 }
 }

@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express"); //se está importando el método Router desde express
+const indexControllers_1 = require("../controllers/indexControllers");
 class IndexRouter {
     constructor() {
         this.router = express_1.Router();
@@ -16,6 +17,7 @@ class IndexRouter {
         this.router.get('/', (req, res) => {
             res.send('inicio');
         });
+        this.router.get('/clientes', indexControllers_1.indexControllers.cliente);
     }
 }
 const indexRouter = new IndexRouter();
