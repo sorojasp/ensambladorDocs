@@ -5,10 +5,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const promise_mysql_1 = __importDefault(require("promise-mysql"));
 const keys_1 = __importDefault(require("./keys"));
-const pool = promise_mysql_1.default.createPool(keys_1.default.database);
-pool.getConnection()
+const database = promise_mysql_1.default.createPool(keys_1.default.database);
+database.getConnection()
     .then(connection => {
-    pool.releaseConnection(connection);
+    database.releaseConnection(connection);
     console.log('DB is Connected');
+}).catch((err) => {
+    console.log('Error al Conectar DB\n', {
+        ok: false,
+        err: err.fatal,
+        errCode: err.code,
+        errSqlState: err.sqlState,
+        errSqlMessage: err.sqlMessage
+    });
 });
-exports.default = pool;
+exports.default = database;

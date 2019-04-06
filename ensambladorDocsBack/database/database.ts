@@ -1,13 +1,24 @@
 import mysql from 'promise-mysql';
-
 import keys from './keys';
+import { MysqlError } from 'mysql';
 
-const pool = mysql.createPool(keys.database);
+const database = mysql.createPool(keys.database);
 
-pool.getConnection()
+database.getConnection()
     .then(connection => {
-        pool.releaseConnection(connection);
+        database.releaseConnection(connection);
         console.log('DB is Connected');
-    });
+    }).catch( (err:MysqlError) => {
 
-export default pool;
+        console.log( 'Error al Conectar DB\n', {
+    
+          ok:false,
+          err: err.fatal,
+          errCode: err.code,
+          errSqlState: err.sqlState,
+          errSqlMessage: err.sqlMessage
+    
+        })
+    })
+
+export default database

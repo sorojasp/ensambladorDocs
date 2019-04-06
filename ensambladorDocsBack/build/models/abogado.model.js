@@ -7,16 +7,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const index_models_1 = require("../models/index.models");
-class IndexControllers {
-    cliente(req, res) {
+const database_1 = __importDefault(require("../database/database"));
+class abogado {
+    consulta() {
         return __awaiter(this, void 0, void 0, function* () {
-            //res.send('nueva ruta desde el controlador');
-            const resultado = yield index_models_1.Abogado.consulta();
-            console.log(resultado);
-            res.send(resultado);
+            this.dataAbogado = undefined;
+            this.dataAbogado = yield database_1.default.query('SELECT *FROM db_abogados WHERE cedula=9147634');
+            if (this.dataAbogado == undefined) {
+                throw new Error("you was problem");
+            }
+            else {
+                return (this.dataAbogado);
+            }
         });
     }
 }
-exports.indexControllers = new IndexControllers;
+exports.Abogado = new abogado;

@@ -23,8 +23,7 @@ import {indexControllers} from '../controllers/indexControllers'
         })
 
         this.router.get('/clientes',indexControllers.cliente)
-
-
+      
 }
 }
 

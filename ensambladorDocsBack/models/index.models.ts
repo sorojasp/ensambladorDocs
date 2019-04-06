@@ -1,0 +1,1 @@
+export {Abogado} from '../models/abogado.model';

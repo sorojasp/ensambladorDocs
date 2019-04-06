@@ -8,11 +8,11 @@ import pool from './database/database';
 export class Server {
    public app: Application;
    
-    
     constructor() {
         this.app = express();
         this.configApp();
         this.router();
+        
 
     }
 
@@ -49,6 +49,11 @@ export class Server {
     
       }
 
+     /* public conexionDB (){
+          pool
+      }
+      */
+
    
 
 };
@@ -58,3 +63,4 @@ const server = new Server();
 
 server.middlewares();
 server.start();
+
