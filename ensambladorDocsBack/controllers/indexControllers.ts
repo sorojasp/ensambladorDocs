@@ -12,10 +12,6 @@ class IndexControllers{
          console.log(resultado)
          res.send(resultado);
          return (resultado[0])    
-       
-
-        
-        
     }
 
 }

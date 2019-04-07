@@ -20,7 +20,7 @@ export default class DocDefinition {
             { text: `${variablesPdf.nombre_apellido}`, bold: true },
 
             `, identificado/a/s con la cédula de ciudadanía N°`,
-            { text: `${variablesPdf. cedula}`, bold: true },
+            { text: `${variablesPdf.cedula}`, bold: true },
             ` de `,
             { text: `${variablesPdf.ciudad}`, bold: true },
             ` , y portador/a/es de la tarjeta profesional N°`,

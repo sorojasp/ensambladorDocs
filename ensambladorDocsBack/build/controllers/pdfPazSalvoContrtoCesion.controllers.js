@@ -32,12 +32,21 @@ class pdfPazCesion {
                 }
             });
             console.log(`datos abogado:${indexControllers_1.indexControllers.cliente}`);
-            yield pdf(indexControllers_1.indexControllers.cliente);
-            res.send("finalizado, Pdf generado");
+            yield pdf({ nombre_apellido: 'Stiven Rojas',
+                cedula: 899809,
+                tarjeta_p: 76556,
+                ciudad: 'Barranquilla' });
+            // res.status(200).download(path.join(__dirname, `../front/Demanda.pdf`));
         });
     }
     descargarPdf(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
+            try {
+                this.generarPdf(req, res);
+            }
+            catch (err) {
+                console.log(err);
+            }
             try {
                 //*** */const identificacion = req.params.identificacion;
                 // const personaResult: Persona[] = await database.query(`SELECT * FROM Personas WHERE cedulaPersona = ${identificacion}`);

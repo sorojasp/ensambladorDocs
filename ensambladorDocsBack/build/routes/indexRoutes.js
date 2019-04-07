@@ -19,7 +19,7 @@ class IndexRouter {
             res.send('inicio');
         });
         this.router.get('/abogados', indexControllers_1.indexControllers.cliente);
-        this.router.get('/abogadosPdf', pdfPazSalvoContrtoCesion_controllers_1.PdfPazCesion.generarPdf);
+        this.router.get('/abogadosPdf', pdfPazSalvoContrtoCesion_controllers_1.PdfPazCesion.descargarPdf);
     }
 }
 const indexRouter = new IndexRouter();

@@ -29,23 +29,33 @@ class pdfPazCesion {
          
           await new GenerarPdf(docDefinition.getDoc, docDefinition.getAbogado);
   
-        } catch (e) {
+        } 
+        
+        catch (e) {
           console.log(e, 'err')
         }
         
   
       }
+
       console.log(`datos abogado:${indexControllers.cliente}`)
-      await pdf(indexControllers.cliente)
+      await pdf({nombre_apellido: 'Stiven Rojas',
+      cedula: 899809,
+      tarjeta_p: 76556,
+      ciudad: 'Barranquilla'})
+      
+     // res.status(200).download(path.join(__dirname, `../front/Demanda.pdf`));
       
       
-      res.send("finalizado, Pdf generado")
     }
 
   public async descargarPdf(req: Request, res: Response) {
       
-   
-
+   try{
+    this.generarPdf(req,res)
+  }catch (err){
+    console.log(err)
+  }
       try {
   
         //*** */const identificacion = req.params.identificacion;
