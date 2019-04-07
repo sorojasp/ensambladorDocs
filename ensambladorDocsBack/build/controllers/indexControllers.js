@@ -16,6 +16,7 @@ class IndexControllers {
             const resultado = yield index_models_1.Abogado.consulta();
             console.log(resultado);
             res.send(resultado);
+            return (resultado[0]);
         });
     }
 }

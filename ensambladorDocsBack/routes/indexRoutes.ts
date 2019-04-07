@@ -1,5 +1,6 @@
 import {Router} from 'express'; //se está importando el método Router desde express
 import {indexControllers} from '../controllers/indexControllers'
+import {PdfPazCesion} from '../controllers/pdfPazSalvoContrtoCesion.controllers';
 
 
  class IndexRouter {
@@ -22,7 +23,8 @@ import {indexControllers} from '../controllers/indexControllers'
             res.send('inicio')
         })
 
-        this.router.get('/clientes',indexControllers.cliente)
+        this.router.get('/abogados',indexControllers.cliente)
+        this.router.get('/abogadosPdf',PdfPazCesion.generarPdf)
       
 }
 }
